@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  evolution-api:
+    container_name: evolution-api
+    image: atendai/evolution-api:latest
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      DATABASE_URL: "file:./dev.db"
+      JWT_SECRET: "longlife_secret_123"
+      AUTHENTICATION_API_KEY: "4296834C9977415CACFCE10F7D57E11"
+      AUTHENTICATION_EXPOSE_IN_FETCH_INSTANCES: "true"
+      LANGUAGE: "en"
+    volumes:
+      - ./data:/app/data
